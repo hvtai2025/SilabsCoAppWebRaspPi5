@@ -15,7 +15,7 @@ def discover_nodes():
     global nodes
     import sys
     import os
-    script_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../wisun_applications/wisun_node_monitoring/linux_border_router_wsbrd/get_nodes_ipv6_address.py'))
+    script_path = os.path.abspath(os.path.join(os.path.dirname(__file__), './get_nodes_ipv6_address.py'))
     discovered = []
     try:
         result = subprocess.run([sys.executable, script_path], capture_output=True, text=True, timeout=5)
@@ -48,6 +48,7 @@ def send_coap_command(ipv6, command):
     else:
         return {"status": "error", "message": "Unknown command"}
     try:
+        print(f"[DEBUG] Executing command: {' '.join(cmd)}")
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=5)
         return {"status": "ok", "stdout": result.stdout, "stderr": result.stderr}
     except Exception as e:
@@ -60,7 +61,7 @@ def index():
 @app.route("/api/nodes", methods=["GET"])
 def api_nodes():
     discover_nodes()
-    return jsonify(nodes)
+    return jsonify({"nodes": nodes})
 
 @app.route("/api/user_nodes", methods=["GET", "POST"])
 def api_user_nodes():

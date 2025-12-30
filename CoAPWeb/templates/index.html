@@ -3,21 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CoAPWeb Dashboard</title>
+  <title>CoAPWeb Smart Home Dashboard</title>
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
   <div id="container">
     <div id="dashboard">
-      <h2>Dashboard</h2>
-      <div id="node-ipv6-list" style="margin-bottom:10px; font-size:0.95em; color:#333;"></div>
+      <h2>Smart Home Devices</h2>
+      <button id="hide-dashboard-btn" onclick="toggleDashboard()">Hide Dashboard</button>
       <ul id="node-list" class="node-list"></ul>
     </div>
     <div id="user-ui">
-      <h2>User UI</h2>
+      <h2>My Home Control</h2>
       <ul id="user-node-list" class="user-node-list"></ul>
     </div>
   </div>
+  <button id="show-dashboard-btn" style="display:none;position:fixed;top:24px;left:24px;z-index:1000;padding:12px 24px;font-size:1em;border-radius:8px;background:#2d3a4b;color:#fff;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.12);cursor:pointer;">Show Dashboard</button>
   <script src="/static/script.js"></script>
+  <script>
+    function toggleDashboard() {
+      const dashboard = document.getElementById('dashboard');
+      const hideBtn = document.getElementById('hide-dashboard-btn');
+      const showBtn = document.getElementById('show-dashboard-btn');
+      if (dashboard.style.display === 'none') {
+        dashboard.style.display = '';
+        hideBtn.style.display = '';
+        showBtn.style.display = 'none';
+      } else {
+        dashboard.style.display = 'none';
+        hideBtn.style.display = 'none';
+        showBtn.style.display = '';
+      }
+    }
+    document.getElementById('show-dashboard-btn').onclick = toggleDashboard;
+  </script>
 </body>
 </html>
