@@ -73,7 +73,7 @@
 
 // Define the node type for this firmware (choose one: LED, SENSOR, GPN)
 #ifndef NODE_TYPE
-#define NODE_TYPE "LED"  // Change to "SENSOR" or "GPN" as needed
+#define NODE_TYPE "SENSOR"  // Change to "SENSOR" or "GPN" as needed
 #endif
 //                                   Includes
 // -----------------------------------------------------------------------------
