@@ -70,6 +70,11 @@
 *
 ******************************************************************************/
 // -----------------------------------------------------------------------------
+
+// Define the node type for this firmware (choose one: LED, SENSOR, GPN)
+#ifndef NODE_TYPE
+#define NODE_TYPE "LED"  // Change to "SENSOR" or "GPN" as needed
+#endif
 //                                   Includes
 // -----------------------------------------------------------------------------
 #include "sl_string.h"
@@ -147,6 +152,22 @@ sl_wisun_coap_packet_t * app_coap_reply(char *response_string,
 }
 
 // CoAP Callback functions definition (one callback function per URI)
+// New: CoAP handler for /sensor/data to return dummy sensor data
+sl_wisun_coap_packet_t * coap_callback_sensor_data(
+      const sl_wisun_coap_packet_t *const req_packet) {
+  // Example: return dummy temperature value
+  float temperature = 25.0;
+  snprintf(coap_response, COAP_MAX_RESPONSE_LEN, "{\"temperature\": %.1f}", temperature);
+  return app_coap_reply(coap_response, req_packet);
+}
+
+// New: CoAP handler for /settings/parameter/node_type to return node type string
+sl_wisun_coap_packet_t * coap_callback_parameter_node_type(
+      const sl_wisun_coap_packet_t *const req_packet) {
+  // NODE_TYPE is defined at compile time
+  snprintf(coap_response, COAP_MAX_RESPONSE_LEN, "%s", NODE_TYPE);
+  return app_coap_reply(coap_response, req_packet);
+}
 sl_wisun_coap_packet_t * coap_callback_all_infos (
       const  sl_wisun_coap_packet_t *const req_packet)  {
   const char *buf;
@@ -866,6 +887,29 @@ uint8_t app_coap_resources_init() {
 
   // Add CoAP resources (one per item)
 
+  // Add /sensor/data and /leds/control resources only for NODE_TYPE == "LED"
+  if (strcmp(NODE_TYPE, "LED") == 0) {
+    // Add /sensor/data resource
+    coap_resource.data.uri_path = "/sensor/data";
+    coap_resource.data.resource_type = "json";
+    coap_resource.data.interface = "sensor";
+    coap_resource.auto_response = coap_callback_sensor_data;
+    coap_resource.discoverable = true;
+    assert(sl_wisun_coap_rhnd_resource_add(&coap_resource) == SL_STATUS_OK);
+    count++;
+
+#ifdef    SL_CATALOG_SIMPLE_LED_PRESENT
+    // Add new /leds/control resource for ON/OFF
+    coap_resource.data.uri_path = "/leds/control";
+    coap_resource.data.resource_type = "leds";
+    coap_resource.data.interface = "leds";
+    coap_resource.auto_response = coap_callback_leds_control;
+    coap_resource.discoverable = true;
+    assert(sl_wisun_coap_rhnd_resource_add(&coap_resource) == SL_STATUS_OK);
+    count++;
+#endif /* SL_CATALOG_SIMPLE_LED_PRESENT */
+  }
+
   coap_resource.data.uri_path = "/info/all";
   coap_resource.data.resource_type = "json";
   coap_resource.data.interface = "node";
@@ -1116,10 +1160,21 @@ uint8_t app_coap_resources_init() {
   assert(sl_wisun_coap_rhnd_resource_add(&coap_resource) == SL_STATUS_OK);
   count++;
 
+
+  // Existing /settings/parameter resource
   coap_resource.data.uri_path = "/settings/parameter";
   coap_resource.data.resource_type = "int";
   coap_resource.data.interface = "settings";
   coap_resource.auto_response = coap_callback_application_parameter;
+  coap_resource.discoverable = true;
+  assert(sl_wisun_coap_rhnd_resource_add(&coap_resource) == SL_STATUS_OK);
+  count++;
+
+  // New /settings/parameter/node_type resource (read-only, returns string)
+  coap_resource.data.uri_path = "/settings/parameter/node_type";
+  coap_resource.data.resource_type = "text";
+  coap_resource.data.interface = "settings";
+  coap_resource.auto_response = coap_callback_parameter_node_type;
   coap_resource.discoverable = true;
   assert(sl_wisun_coap_rhnd_resource_add(&coap_resource) == SL_STATUS_OK);
   count++;

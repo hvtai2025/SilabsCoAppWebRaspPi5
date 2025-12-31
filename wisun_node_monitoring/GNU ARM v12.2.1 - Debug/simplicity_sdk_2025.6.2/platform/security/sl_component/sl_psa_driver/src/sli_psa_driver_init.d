@@ -1,0 +1,328 @@
+simplicity_sdk_2025.6.2/platform/security/sl_component/sl_psa_driver/src/sli_psa_driver_init.o: \
+ D:/SiliconLabs/Silabs/sdk/platform/security/sl_component/sl_psa_driver/src/sli_psa_driver_init.c \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_psa_driver_features.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\build_info.h \
+ C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\config/sl_mbedtls_config.h \
+ C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\autogen/sli_mbedtls_config_autogen.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\config\sli_mbedtls_omnipresent.h \
+ C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\autogen/sl_component_catalog.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\em_device.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28b312f1024im48.h \
+ d:\siliconlabs\silabs\sdk\platform\cmsis\core\include\core_cm33.h \
+ d:\siliconlabs\silabs\sdk\platform\cmsis\core\include\cmsis_version.h \
+ d:\siliconlabs\silabs\sdk\platform\cmsis\core\include\cmsis_compiler.h \
+ d:\siliconlabs\silabs\sdk\platform\cmsis\core\include\cmsis_gcc.h \
+ d:\siliconlabs\silabs\sdk\platform\service\interrupt_manager\inc\arm\cmsis_nvic_virtual.h \
+ d:\siliconlabs\silabs\sdk\platform\service\interrupt_manager\inc\sl_interrupt_manager.h \
+ d:\siliconlabs\silabs\sdk\platform\common\inc\sl_core.h \
+ d:\siliconlabs\silabs\sdk\platform\common\inc\sl_code_classification.h \
+ d:\siliconlabs\silabs\sdk\platform\common\inc\sli_code_classification.h \
+ d:\siliconlabs\silabs\sdk\platform\common\inc\sl_status.h \
+ d:\siliconlabs\silabs\sdk\platform\cmsis\core\include\mpu_armv8.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\system_efr32zg28.h \
+ d:\siliconlabs\silabs\sdk\platform\common\inc\sl_code_classification.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_scratchpad.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_emu.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_cmu.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_hfrco.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_fsrco.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_dpll.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_lfxo.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_lfrco.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_ulfrco.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_msc.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_icache.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_prs.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_gpio.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_gpio_port.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_ldma.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_ldmaxbar.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_timer.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_usart.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_burtc.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_i2c.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_syscfg.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_buram.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_gpcrc.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_dcdc.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_mailbox.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_eusart.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_sysrtc.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_lcd.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_keyscan.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_mpahbram.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_lcdrf.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_pfmxpprf.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_aes.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_smu.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_letimer.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_iadc.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_acmp.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_vdac.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_pcnt.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_lesense.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_hfxo.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_wdog.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_semailbox.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_mvp.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_devinfo.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_prs_signals.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_dma_descriptor.h \
+ d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_ldmaxbar_defines.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\config\sli_mbedtls_acceleration.h \
+ C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\config/sl_mbedtls_device_config.h \
+ C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\autogen/sli_mbedtls_config_transform_autogen.h \
+ C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\config/psa_crypto_config.h \
+ C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\autogen/sli_psa_config_autogen.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\config\sli_psa_acceleration.h \
+ C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\autogen/sli_psa_builtin_config_autogen.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\config_psa.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_legacy.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_adjust_config_synonyms.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_adjust_config_dependencies.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\config_adjust_psa_superset_legacy.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_adjust_config_key_pair_types.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\config_adjust_legacy_from_psa.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_adjust_auto_enabled.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\config_adjust_legacy_crypto.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\config_adjust_x509.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\config_adjust_ssl.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\check_config.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_platform.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\private_access.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\build_info.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_types.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_values.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_sizes.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_struct.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_driver_contexts_primitives.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_driver_common.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_sizes.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_builtin_primitives.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\md5.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\ripemd160.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\sha1.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\inc\sha1_alt.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_transparent_types.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_psa_driver_features.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_types.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sli_se_manager_features.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_defines.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_config.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_check_config.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sli_se_manager_mailbox.h \
+ d:\siliconlabs\silabs\sdk\platform\common\inc\sl_common.h \
+ d:\siliconlabs\silabs\sdk\platform\common\inc\sl_assert.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_driver_aead.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_driver_mac.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_key_handling.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_types.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_cipher.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_cipher.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_driver_cipher.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\sha256.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\inc\sha256_alt.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\sha512.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\inc\sha512_alt.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\sha3.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\cipher.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\platform_util.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_opaque_types.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_defines.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\inc\sl_psa_values.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_driver_key_derivation.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_platform.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_driver_contexts_composites.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_builtin_composites.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\cmac.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\inc\cmac_alt.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\ccm.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\block_cipher.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\aes.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\inc\aes_alt.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_types.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\chachapoly.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\poly1305.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\chacha20.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\ecdsa.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\ecp.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\bignum.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\md.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\ecjpake.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\inc\ecjpake_alt.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_driver_contexts_key_derivation.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_builtin_key_derivation.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_extra.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_compat.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_transparent_functions.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_transparent_types.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_opaque_functions.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_opaque_types.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_driver_key_management.h \
+ d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_version_dependencies.h \
+ d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_struct.h
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_psa_driver_features.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\build_info.h:
+C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\config/sl_mbedtls_config.h:
+C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\autogen/sli_mbedtls_config_autogen.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\config\sli_mbedtls_omnipresent.h:
+C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\autogen/sl_component_catalog.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\em_device.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28b312f1024im48.h:
+d:\siliconlabs\silabs\sdk\platform\cmsis\core\include\core_cm33.h:
+d:\siliconlabs\silabs\sdk\platform\cmsis\core\include\cmsis_version.h:
+d:\siliconlabs\silabs\sdk\platform\cmsis\core\include\cmsis_compiler.h:
+d:\siliconlabs\silabs\sdk\platform\cmsis\core\include\cmsis_gcc.h:
+d:\siliconlabs\silabs\sdk\platform\service\interrupt_manager\inc\arm\cmsis_nvic_virtual.h:
+d:\siliconlabs\silabs\sdk\platform\service\interrupt_manager\inc\sl_interrupt_manager.h:
+d:\siliconlabs\silabs\sdk\platform\common\inc\sl_core.h:
+d:\siliconlabs\silabs\sdk\platform\common\inc\sl_code_classification.h:
+d:\siliconlabs\silabs\sdk\platform\common\inc\sli_code_classification.h:
+d:\siliconlabs\silabs\sdk\platform\common\inc\sl_status.h:
+d:\siliconlabs\silabs\sdk\platform\cmsis\core\include\mpu_armv8.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\system_efr32zg28.h:
+d:\siliconlabs\silabs\sdk\platform\common\inc\sl_code_classification.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_scratchpad.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_emu.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_cmu.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_hfrco.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_fsrco.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_dpll.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_lfxo.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_lfrco.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_ulfrco.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_msc.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_icache.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_prs.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_gpio.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_gpio_port.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_ldma.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_ldmaxbar.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_timer.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_usart.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_burtc.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_i2c.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_syscfg.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_buram.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_gpcrc.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_dcdc.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_mailbox.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_eusart.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_sysrtc.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_lcd.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_keyscan.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_mpahbram.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_lcdrf.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_pfmxpprf.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_aes.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_smu.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_letimer.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_iadc.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_acmp.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_vdac.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_pcnt.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_lesense.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_hfxo.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_wdog.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_semailbox.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_mvp.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_devinfo.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_prs_signals.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_dma_descriptor.h:
+d:\siliconlabs\silabs\sdk\platform\device\siliconlabs\efr32zg28\include\efr32zg28_ldmaxbar_defines.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\config\sli_mbedtls_acceleration.h:
+C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\config/sl_mbedtls_device_config.h:
+C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\autogen/sli_mbedtls_config_transform_autogen.h:
+C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\config/psa_crypto_config.h:
+C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\autogen/sli_psa_config_autogen.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\config\sli_psa_acceleration.h:
+C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\autogen/sli_psa_builtin_config_autogen.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\config_psa.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_legacy.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_adjust_config_synonyms.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_adjust_config_dependencies.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\config_adjust_psa_superset_legacy.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_adjust_config_key_pair_types.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\config_adjust_legacy_from_psa.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_adjust_auto_enabled.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\config_adjust_legacy_crypto.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\config_adjust_x509.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\config_adjust_ssl.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\check_config.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_platform.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\private_access.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\build_info.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_types.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_values.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_sizes.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_struct.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_driver_contexts_primitives.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_driver_common.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_sizes.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_builtin_primitives.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\md5.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\ripemd160.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\sha1.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\inc\sha1_alt.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_transparent_types.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_psa_driver_features.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_types.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sli_se_manager_features.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_defines.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_config.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_check_config.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sli_se_manager_mailbox.h:
+d:\siliconlabs\silabs\sdk\platform\common\inc\sl_common.h:
+d:\siliconlabs\silabs\sdk\platform\common\inc\sl_assert.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_driver_aead.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_driver_mac.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_key_handling.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_types.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_cipher.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_cipher.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_driver_cipher.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\sha256.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\inc\sha256_alt.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\sha512.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\inc\sha512_alt.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\sha3.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\cipher.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\platform_util.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_opaque_types.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\se_manager\inc\sl_se_manager_defines.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\inc\sl_psa_values.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_driver_key_derivation.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_platform.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_driver_contexts_composites.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_builtin_composites.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\cmac.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\inc\cmac_alt.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\ccm.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\block_cipher.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\aes.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\inc\aes_alt.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_types.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\chachapoly.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\poly1305.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\chacha20.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\ecdsa.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\ecp.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\bignum.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\md.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\mbedtls\ecjpake.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_mbedtls_support\inc\ecjpake_alt.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_driver_contexts_key_derivation.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_builtin_key_derivation.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_extra.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_compat.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_transparent_functions.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_transparent_types.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_opaque_functions.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_opaque_types.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_driver_key_management.h:
+d:\siliconlabs\silabs\sdk\platform\security\sl_component\sl_psa_driver\inc\sli_se_version_dependencies.h:
+d:\siliconlabs\silabs\sdk\util\third_party\mbedtls\include\psa\crypto_struct.h:
