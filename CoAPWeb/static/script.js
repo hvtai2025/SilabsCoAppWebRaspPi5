@@ -1,3 +1,14 @@
+// Clear User UI list (frontend only, does not affect backend or dashboard)
+function clearUserUI() {
+  userNodes = [];
+  renderUserNodeList();
+}
+
+// Attach clear button event after DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  const clearBtn = document.getElementById('clear-user-ui-btn');
+  if (clearBtn) clearBtn.onclick = clearUserUI;
+});
 // script.js - Smart Home Dashboard Logic
 
 
@@ -10,14 +21,22 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function fetchNodes() {
+  const loadingDiv = document.getElementById('node-loading');
+  const nodeList = document.getElementById('node-list');
+  if (loadingDiv) loadingDiv.style.display = 'flex';
+  if (nodeList) nodeList.style.display = 'none';
   fetch('/api/nodes')
     .then(response => response.json())
     .then(data => {
       allNodes = data.nodes;
       renderNodeList();
+      if (loadingDiv) loadingDiv.style.display = 'none';
+      if (nodeList) nodeList.style.display = '';
     })
     .catch(err => {
-      document.getElementById('node-ipv6-list').innerHTML = '<span class="error">Failed to load nodes</span>';
+      if (loadingDiv) loadingDiv.style.display = 'none';
+      if (nodeList) nodeList.style.display = '';
+      nodeList.innerHTML = '<span class="error">Failed to load nodes</span>';
     });
 }
 
@@ -31,20 +50,66 @@ function fetchUserNodes() {
     });
 }
 
+
+// Show a modal popup to set the node name, with correct node type and icon
 function addToUserUI(ipv6) {
   const node = allNodes.find(n => n.ipv6 === ipv6);
   if (!node) return;
-  const name = prompt('Enter a name for this LED:', node.name || 'LED Device');
-  if (name === null) return; // Cancelled
-  const nodeWithName = { ...node, name };
-  fetch('/api/user_nodes', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(nodeWithName)
-  })
-    .then(() => {
-      fetchUserNodes();
-    });
+  const modal = document.getElementById('set-name-modal');
+  const title = document.getElementById('set-name-title');
+  const icon = document.getElementById('set-name-type-icon');
+  const label = document.getElementById('set-name-type-label');
+  const input = document.getElementById('set-name-input');
+  const okBtn = document.getElementById('set-name-ok-btn');
+  const cancelBtn = document.getElementById('set-name-cancel-btn');
+  if (!modal || !title || !icon || !label || !input || !okBtn || !cancelBtn) return;
+
+  // Set modal content based on node type
+  let typeLabel = 'Unknown';
+  let iconSrc = '';
+  const typeUpper = node.type ? node.type.toUpperCase() : '';
+  if (typeUpper === 'SENSOR') {
+    typeLabel = 'Sensor';
+    iconSrc = '/static/sensor.png';
+  } else if (typeUpper === 'LED') {
+    typeLabel = 'LED';
+    iconSrc = '/static/light_on.png';
+  } else {
+    typeLabel = node.type || 'Unknown';
+    iconSrc = '/static/gpn.png';
+  }
+  title.textContent = 'Set Name for ' + typeLabel + ' Node';
+  icon.src = iconSrc;
+  label.textContent = typeLabel;
+  input.value = node.name || '';
+  input.focus();
+
+  modal.style.display = 'flex';
+
+  // Remove any previous event listeners
+  okBtn.onclick = null;
+  cancelBtn.onclick = null;
+
+  okBtn.onclick = function() {
+    const name = input.value.trim();
+    if (!name) {
+      input.focus();
+      return;
+    }
+    modal.style.display = 'none';
+    const nodeWithName = { ...node, name };
+    fetch('/api/user_nodes', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(nodeWithName)
+    })
+      .then(() => {
+        fetchUserNodes();
+      });
+  };
+  cancelBtn.onclick = function() {
+    modal.style.display = 'none';
+  };
 }
 
 function renderNodeList() {
@@ -62,6 +127,7 @@ function renderNodeList() {
       <div class="node-info">
         <span class="node-label">${node.name || 'Node'}</span>
         <span class="node-ip">${node.ipv6}</span>
+        <span class="node-type">Type: <b>${node.type || 'Unknown'}</b></span>
       </div>
       <div class="node-controls">
         <button onclick="addToUserUI('${node.ipv6}')" ${alreadyAdded ? 'disabled class=\"added-to-ui\"' : ''}>Add to UI</button>
@@ -85,24 +151,66 @@ function renderUserNodeList() {
   userNodes.forEach(node => {
     const li = document.createElement('li');
     li.className = 'user-node-item';
-    // Default state is off if not set
-    if (!(node.ipv6 in ledStates)) ledStates[node.ipv6] = false;
-    const btnText = ledStates[node.ipv6] ? 'Turn Off' : 'Turn On';
-    const bulbIcon = ledStates[node.ipv6] ? '💡' : '💡<span style="filter: grayscale(100%) brightness(0.7);">';
-    const bulbImgId = `bulb-img-${node.ipv6.replace(/[^a-zA-Z0-9]/g, '')}`;
-    const bulbImg = `<img src="${ledStates[node.ipv6] ? '/static/light_on.png' : '/static/light_off.png'}" class="bulb-icon" alt="Light" id="${bulbImgId}">`;
-    li.innerHTML = `
-      <div class="user-node-info">
-        ${bulbImg}
-        <span class="user-node-label">${node.name || 'LED Device'}</span>
-      </div>
-      <div class="user-node-controls">
-        <button onclick="toggleLed('${node.ipv6}', this, '${bulbImgId}')">${btnText}</button>
-      </div>
-    `;
+    const typeUpper = node.type ? node.type.toUpperCase() : '';
+    if (typeUpper === 'SENSOR') {
+      // Sensor UI: icon, label for data, and an Update button
+      const sensorImgId = `sensor-img-${node.ipv6.replace(/[^a-zA-Z0-9]/g, '')}`;
+      const sensorDataId = `sensor-data-${node.ipv6.replace(/[^a-zA-Z0-9]/g, '')}`;
+      li.innerHTML = `
+        <div class="user-node-info">
+          <img src="/static/sensor.png" class="sensor-icon" alt="Sensor" id="${sensorImgId}" style="width:32px;height:32px;vertical-align:middle;">
+          <span class="user-node-label">${node.name || 'Sensor Device'}</span>
+        </div>
+        <div class="user-node-controls">
+          <label id="${sensorDataId}" class="sensor-data-label" style="display:inline-block;width:120px;margin-right:8px;vertical-align:middle;">--</label>
+          <button onclick="updateSensorData('${node.ipv6}', '${sensorDataId}')">Update</button>
+        </div>
+      `;
+    } else if (typeUpper === 'LED') {
+      // LED UI
+      if (!(node.ipv6 in ledStates)) ledStates[node.ipv6] = false;
+      const btnText = ledStates[node.ipv6] ? 'Turn Off' : 'Turn On';
+      const bulbImgId = `bulb-img-${node.ipv6.replace(/[^a-zA-Z0-9]/g, '')}`;
+      const bulbImg = `<img src="${ledStates[node.ipv6] ? '/static/light_on.png' : '/static/light_off.png'}" class="bulb-icon" alt="Light" id="${bulbImgId}">`;
+      li.innerHTML = `
+        <div class="user-node-info">
+          ${bulbImg}
+          <span class="user-node-label">${node.name || 'LED Device'}</span>
+        </div>
+        <div class="user-node-controls">
+          <button onclick="toggleLed('${node.ipv6}', this, '${bulbImgId}')">${btnText}</button>
+        </div>
+      `;
+    } else {
+      // Fallback for unknown types: use gpn.png
+      const gpnImgId = `gpn-img-${node.ipv6.replace(/[^a-zA-Z0-9]/g, '')}`;
+      li.innerHTML = `
+        <div class="user-node-info">
+          <img src="/static/gpn.png" class="gpn-icon" alt="Unknown" id="${gpnImgId}" style="width:32px;height:32px;vertical-align:middle;">
+          <span class="user-node-label">${node.name || 'Unknown Device'}</span>
+        </div>
+      `;
+    }
     userNodeList.appendChild(li);
-
   });
+
+
+// Fetch sensor data from the node's /sensor/data endpoint and update the label
+function updateSensorData(ipv6, dataLabelId) {
+  const label = document.getElementById(dataLabelId);
+  if (label) label.textContent = '...';
+  // Use the backend API that proxies CoAP /sensor/data
+  fetch(`/api/sensor_data/${encodeURIComponent(ipv6)}`)
+    .then(response => response.json())
+    .then(data => {
+      if (label) label.textContent = data.value !== undefined ? data.value : (typeof data === 'string' ? data : 'N/A');
+    })
+    .catch(() => {
+      if (label) label.textContent = 'Error';
+    });
+}
+// Expose to global scope for inline HTML onclick
+window.updateSensorData = updateSensorData;
 }
 
 

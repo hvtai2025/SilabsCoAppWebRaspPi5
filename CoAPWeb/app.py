@@ -2,13 +2,86 @@ from flask import Flask, render_template, jsonify, request
 import subprocess
 import threading
 import re
+import json
 
 app = Flask(__name__)
 
-# In-memory node list and user UI list
+from flask import Flask, render_template, jsonify, request
+import subprocess
+import threading
+import re
+import json
+
+app = Flask(__name__)
+
 nodes = []  # List of discovered nodes (dict: {ipv6, type})
 user_nodes = []  # List of nodes added to user UI
 
+
+# Helper to determine node type using CoAP query
+def get_node_type(ipv6):
+    import os
+    import sys
+    script_path = os.path.abspath(os.path.join(os.path.dirname(__file__), './get_node_type.py'))
+    try:
+        result = subprocess.run([sys.executable, script_path, ipv6], capture_output=True, text=True, timeout=5)
+        output = result.stdout.strip()
+        if output and output != "UNKNOWN":
+            return output
+        else:
+            return "UNKNOWN"
+    except Exception as e:
+        pass
+        print(f"[ERROR] Failed to get node type for {ipv6}: {e}")
+        return "UNKNOWN"
+
+@app.route("/api/sensor_data/<path:ipv6>", methods=["GET"])
+def api_sensor_data(ipv6):
+    import os
+    import sys
+    script_path = os.path.abspath(os.path.join(os.path.dirname(__file__), './coap_sensor.py'))
+    try:
+        result = subprocess.run([sys.executable, script_path, ipv6], capture_output=True, text=True, timeout=8)
+        if result.returncode != 0:
+            return jsonify({'error': 'CoAP request failed', 'stderr': result.stderr}), 502
+        data = result.stdout.strip()
+        # Try to parse as JSON, else return as string
+        try:
+            parsed = json.loads(data)
+        except Exception:
+            parsed = data
+
+        # If parsed is a dict and has 'payload', try to parse payload
+        if isinstance(parsed, dict) and 'payload' in parsed:
+            payload = parsed['payload']
+            # payload may be a JSON string or already a dict
+            if isinstance(payload, str):
+                try:
+                    payload_dict = json.loads(payload)
+                except Exception:
+                    payload_dict = None
+            elif isinstance(payload, dict):
+                payload_dict = payload
+            else:
+                payload_dict = None
+            # If temperature is present, return it as value
+            if payload_dict and 'temperature' in payload_dict:
+                return jsonify({'value': payload_dict['temperature']})
+            # If payload_dict is a dict, return it
+            if payload_dict:
+                return jsonify(payload_dict)
+            # Otherwise, return the payload as string
+            return jsonify({'value': payload})
+        # If parsed is a dict and has temperature directly
+        if isinstance(parsed, dict) and 'temperature' in parsed:
+            return jsonify({'value': parsed['temperature']})
+        # If parsed is a dict, return it
+        if isinstance(parsed, dict):
+            return jsonify(parsed)
+        # Otherwise, return as string
+        return jsonify({'value': parsed})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 # Discover nodes using pydbus and the WSBRD D-Bus API
 def discover_nodes():
@@ -24,11 +97,13 @@ def discover_nodes():
             for line in output.splitlines():
                 ipv6 = line.strip()
                 if ipv6:
-                    discovered.append({"ipv6": ipv6, "type": "LED"})
+                    node_type = get_node_type(ipv6)
+                    if node_type and node_type != "UNKNOWN":
+                        discovered.append({"ipv6": ipv6, "type": node_type})
         nodes = discovered
         print("[DEBUG] Discovered node IPv6 addresses (from script):")
         for n in nodes:
-            print(f"  {n['ipv6']}")
+            print(f"  {n['ipv6']} ({n['type']})")
     except Exception as e:
         print(f"[ERROR] Failed to run get_nodes_ipv6_address.py: {e}")
         nodes = []
