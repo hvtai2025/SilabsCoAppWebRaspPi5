@@ -9,32 +9,49 @@
 <body>
   <div id="container">
     <div id="dashboard">
-      <h2>Smart Home Devices</h2>
-      <button id="hide-dashboard-btn" onclick="toggleDashboard()">Hide Dashboard</button>
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h2 style="margin:0;">Smart Home Devices</h2>
+        <button id="hide-dashboard-btn" class="icon-btn" onclick="toggleDashboard()" title="Hide Dashboard" style="margin-left:12px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+        </button>
+      </div>
       <ul id="node-list" class="node-list"></ul>
     </div>
-    <div id="user-ui">
+    <div id="user-ui" style="position:relative;">
       <h2>My Home Control</h2>
+      <button id="show-dashboard-btn" class="icon-btn" style="display:none;position:absolute;top:16px;right:16px;z-index:1000;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 8 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 5 15.4a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 8a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 8 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09A1.65 1.65 0 0 0 16 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 8c.14.31.21.65.21 1v.09A1.65 1.65 0 0 0 21 12c0 .35-.07.69-.21 1z"/></svg>
+      </button>
       <ul id="user-node-list" class="user-node-list"></ul>
     </div>
   </div>
-  <button id="show-dashboard-btn" style="display:none;position:fixed;top:24px;left:24px;z-index:1000;padding:12px 24px;font-size:1em;border-radius:8px;background:#2d3a4b;color:#fff;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.12);cursor:pointer;">Show Dashboard</button>
   <script src="/static/script.js"></script>
   <script>
     function toggleDashboard() {
       const dashboard = document.getElementById('dashboard');
       const hideBtn = document.getElementById('hide-dashboard-btn');
       const showBtn = document.getElementById('show-dashboard-btn');
-      if (dashboard.style.display === 'none') {
-        dashboard.style.display = '';
-        hideBtn.style.display = '';
-        showBtn.style.display = 'none';
+      const container = document.getElementById('container');
+      if (dashboard.classList.contains('slide-out')) {
+        dashboard.classList.remove('slide-out');
+        dashboard.classList.add('slide-in');
+        setTimeout(() => {
+          hideBtn.style.display = '';
+          showBtn.style.display = 'none';
+          container.classList.remove('full-user-ui');
+        }, 400);
       } else {
-        dashboard.style.display = 'none';
+        dashboard.classList.remove('slide-in');
+        dashboard.classList.add('slide-out');
         hideBtn.style.display = 'none';
-        showBtn.style.display = '';
+        setTimeout(() => {
+          showBtn.style.display = '';
+          container.classList.add('full-user-ui');
+        }, 400);
       }
     }
+    // Initial state
+    document.getElementById('dashboard').classList.add('slide-in');
     document.getElementById('show-dashboard-btn').onclick = toggleDashboard;
   </script>
 </body>

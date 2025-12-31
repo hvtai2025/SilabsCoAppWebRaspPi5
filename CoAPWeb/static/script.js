@@ -64,7 +64,7 @@ function renderNodeList() {
         <span class="node-ip">${node.ipv6}</span>
       </div>
       <div class="node-controls">
-        <button onclick="addToUserUI('${node.ipv6}')" ${alreadyAdded ? 'disabled' : ''}>Add to UI</button>
+        <button onclick="addToUserUI('${node.ipv6}')" ${alreadyAdded ? 'disabled class=\"added-to-ui\"' : ''}>Add to UI</button>
       </div>
     `;
     nodeList.appendChild(li);
