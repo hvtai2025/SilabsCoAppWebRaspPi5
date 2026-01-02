@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <model:MDescriptors xmlns:model="http://www.silabs.com/ss/Studio.ecore">
   <descriptors name="wisun_node_monitoring">
-    <properties key="projectCommon.sdkId" value="com.silabs.sdk.stack.sisdk:2025.6.2._-677743370"/>
-    <properties key="universalConfig.relativeWorkspacePath" value="..\wisun_node_monitoring.slcw"/>
+    <properties key="projectCommon.sdkId" value="com.silabs.sdk.stack.sisdk:2025.6.2._1304457205"/>
+    <properties key="universalConfig.relativeWorkspacePath" value="../wisun_node_monitoring.slcw"/>
     <properties key="universalConfig.generationDirectory" value=""/>
     <properties key="universalConfig.toolchainCompatibility" value="iar gcc"/>
     <properties key="projectCommon.overwriteCopiedSources" value="false"/>
@@ -10,8 +10,8 @@
     <properties key="projectCommon.kitId" value=""/>
     <properties key="projectCommon.partId" value="mcu.arm.efr32.zg28.efr32zg28b312f1024im48"/>
     <properties key="projectCommon.toolchainId" value="com.silabs.ss.tool.ide.arm.toolchain.gnu.cdt:12.2.1.20221205"/>
-    <properties key="universalConfig.projectTypeIds" value="visual-studio-code com.silabs.ss.framework.ide.project.core.cdtMbsProjectType"/>
+    <properties key="universalConfig.projectTypeIds" value="visual-studio-code"/>
     <properties key="projectCommon.importModeId" value="LINK_LIBRARIES"/>
     <properties key="universalConfig.compSelProjInstanceId" value="1767080464876"/>
   </descriptors>
-</model:MDescriptors>
+</model:MDescriptors>

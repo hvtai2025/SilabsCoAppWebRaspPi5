@@ -156,7 +156,7 @@ sl_wisun_coap_packet_t * app_coap_reply(char *response_string,
 sl_wisun_coap_packet_t * coap_callback_sensor_data(
       const sl_wisun_coap_packet_t *const req_packet) {
   // Example: return dummy temperature value
-  float temperature = 25.0;
+  float temperature = 30.0;
   snprintf(coap_response, COAP_MAX_RESPONSE_LEN, "{\"temperature\": %.1f}", temperature);
   return app_coap_reply(coap_response, req_packet);
 }
@@ -887,9 +887,8 @@ uint8_t app_coap_resources_init() {
 
   // Add CoAP resources (one per item)
 
-  // Add /sensor/data and /leds/control resources only for NODE_TYPE == "LED"
-  if (strcmp(NODE_TYPE, "LED") == 0) {
-    // Add /sensor/data resource
+  // Add /sensor/data resource for SENSOR and LED node types
+  if (strcmp(NODE_TYPE, "SENSOR") == 0) {
     coap_resource.data.uri_path = "/sensor/data";
     coap_resource.data.resource_type = "json";
     coap_resource.data.interface = "sensor";
@@ -897,9 +896,11 @@ uint8_t app_coap_resources_init() {
     coap_resource.discoverable = true;
     assert(sl_wisun_coap_rhnd_resource_add(&coap_resource) == SL_STATUS_OK);
     count++;
+  }
 
+  // Add /leds/control resource only for LED node type
+  if (strcmp(NODE_TYPE, "LED") == 0) {
 #ifdef    SL_CATALOG_SIMPLE_LED_PRESENT
-    // Add new /leds/control resource for ON/OFF
     coap_resource.data.uri_path = "/leds/control";
     coap_resource.data.resource_type = "leds";
     coap_resource.data.interface = "leds";

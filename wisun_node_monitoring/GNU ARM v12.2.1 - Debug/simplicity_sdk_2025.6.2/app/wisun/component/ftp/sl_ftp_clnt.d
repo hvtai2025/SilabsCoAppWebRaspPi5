@@ -1,20 +1,20 @@
 simplicity_sdk_2025.6.2/app/wisun/component/ftp/sl_ftp_clnt.o: \
- D:/SiliconLabs/Silabs/sdk/app/wisun/component/ftp/sl_ftp_clnt.c \
- d:\siliconlabs\silabs\sdk\platform\cmsis\rtos2\include\cmsis_os2.h \
- D:/SiliconLabs/Silabs/sdk/app/wisun/component/ftp/sl_ftp_clnt.h \
- d:\siliconlabs\silabs\sdk\platform\common\inc\sl_status.h \
- D:/SiliconLabs/Silabs/sdk/app/wisun/component/ftp/sl_ftp.h \
- d:\siliconlabs\silabs\sdk\platform\common\inc\sl_common.h \
- d:\siliconlabs\silabs\sdk\platform\common\inc\sl_assert.h \
- d:\siliconlabs\silabs\sdk\platform\cmsis\core\include\cmsis_compiler.h \
- d:\siliconlabs\silabs\sdk\platform\cmsis\core\include\cmsis_gcc.h \
- C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\config/sl_ftp_config.h
-d:\siliconlabs\silabs\sdk\platform\cmsis\rtos2\include\cmsis_os2.h:
-D:/SiliconLabs/Silabs/sdk/app/wisun/component/ftp/sl_ftp_clnt.h:
-d:\siliconlabs\silabs\sdk\platform\common\inc\sl_status.h:
-D:/SiliconLabs/Silabs/sdk/app/wisun/component/ftp/sl_ftp.h:
-d:\siliconlabs\silabs\sdk\platform\common\inc\sl_common.h:
-d:\siliconlabs\silabs\sdk\platform\common\inc\sl_assert.h:
-d:\siliconlabs\silabs\sdk\platform\cmsis\core\include\cmsis_compiler.h:
-d:\siliconlabs\silabs\sdk\platform\cmsis\core\include\cmsis_gcc.h:
-C:\Users\a91958\SimplicityStudio\v5_workspace\wisun_node_monitoring\config/sl_ftp_config.h:
+ /home/hvt/SimplicityStudio/SDKs/simplicity_sdk/app/wisun/component/ftp/sl_ftp_clnt.c \
+ /home/hvt/SimplicityStudio/SDKs/simplicity_sdk//platform/CMSIS/RTOS2/Include/cmsis_os2.h \
+ /home/hvt/SimplicityStudio/SDKs/simplicity_sdk/app/wisun/component/ftp/sl_ftp_clnt.h \
+ /home/hvt/SimplicityStudio/SDKs/simplicity_sdk//platform/common/inc/sl_status.h \
+ /home/hvt/SimplicityStudio/SDKs/simplicity_sdk/app/wisun/component/ftp/sl_ftp.h \
+ /home/hvt/SimplicityStudio/SDKs/simplicity_sdk//platform/common/inc/sl_common.h \
+ /home/hvt/SimplicityStudio/SDKs/simplicity_sdk//platform/common/inc/sl_assert.h \
+ /home/hvt/SimplicityStudio/SDKs/simplicity_sdk//platform/CMSIS/Core/Include/cmsis_compiler.h \
+ /home/hvt/SimplicityStudio/SDKs/simplicity_sdk//platform/CMSIS/Core/Include/cmsis_gcc.h \
+ /home/hvt/wisun_demo/SilabsCoAppWebRaspPi5/wisun_node_monitoring/config/sl_ftp_config.h
+/home/hvt/SimplicityStudio/SDKs/simplicity_sdk//platform/CMSIS/RTOS2/Include/cmsis_os2.h:
+/home/hvt/SimplicityStudio/SDKs/simplicity_sdk/app/wisun/component/ftp/sl_ftp_clnt.h:
+/home/hvt/SimplicityStudio/SDKs/simplicity_sdk//platform/common/inc/sl_status.h:
+/home/hvt/SimplicityStudio/SDKs/simplicity_sdk/app/wisun/component/ftp/sl_ftp.h:
+/home/hvt/SimplicityStudio/SDKs/simplicity_sdk//platform/common/inc/sl_common.h:
+/home/hvt/SimplicityStudio/SDKs/simplicity_sdk//platform/common/inc/sl_assert.h:
+/home/hvt/SimplicityStudio/SDKs/simplicity_sdk//platform/CMSIS/Core/Include/cmsis_compiler.h:
+/home/hvt/SimplicityStudio/SDKs/simplicity_sdk//platform/CMSIS/Core/Include/cmsis_gcc.h:
+/home/hvt/wisun_demo/SilabsCoAppWebRaspPi5/wisun_node_monitoring/config/sl_ftp_config.h:

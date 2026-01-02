@@ -1,4 +1,4 @@
 simplicity_sdk_2025.6.2/platform/common/src/sl_syscalls.o: \
- D:/SiliconLabs/Silabs/sdk/platform/common/src/sl_syscalls.c \
- d:\siliconlabs\silabs\sdk\platform\common\inc\sl_compiler.h
-d:\siliconlabs\silabs\sdk\platform\common\inc\sl_compiler.h:
+ /home/hvt/SimplicityStudio/SDKs/simplicity_sdk/platform/common/src/sl_syscalls.c \
+ /home/hvt/SimplicityStudio/SDKs/simplicity_sdk//platform/common/inc/sl_compiler.h
+/home/hvt/SimplicityStudio/SDKs/simplicity_sdk//platform/common/inc/sl_compiler.h:

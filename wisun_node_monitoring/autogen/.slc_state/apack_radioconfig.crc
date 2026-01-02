@@ -3,28 +3,28 @@
   "apackName" : "apack_radioConfig",
   "equality" : {
     "sdkId" : "com.silabs.sdk.stack.sisdk:2025.6.2",
-    "generatorIds" : [ "visual-studio-code", "com.silabs.ss.framework.ide.project.core.cdtMbsProjectType" ],
+    "generatorIds" : [ "visual-studio-code" ],
     "fileStates" : {
-      "config\\rail\\profile_wisun_fan_1_0.restriction" : {
-        "hash" : 958638292,
+      "config/rail/profile_wisun_fan_1_1.restriction" : {
+        "hash" : -799318069,
         "exists" : true
       },
-      "config\\rail\\radio_settings.radioconf" : {
-        "hash" : 302396160,
+      "config/rail/profile_wisun_fan_1_0.restriction" : {
+        "hash" : 2117324378,
         "exists" : true
       },
-      "config\\rail\\profile_wisun_fan_1_1.restriction" : {
-        "hash" : 1547998098,
+      "config/rail/profile_wisun_han.restriction" : {
+        "hash" : 1685285330,
         "exists" : true
       },
-      "config\\rail\\profile_wisun_han.restriction" : {
-        "hash" : 925137210,
+      "config/rail/radio_settings.radioconf" : {
+        "hash" : -1015035676,
         "exists" : true
       }
     },
     "acTrackedFile" : {
       "apack.info" : {
-        "hash" : -1513553219,
+        "hash" : -1281438438,
         "exists" : true
       }
     },
