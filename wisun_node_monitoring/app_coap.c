@@ -73,7 +73,7 @@
 
 // Define the node type for this firmware (choose one: LED, SENSOR, GPN)
 #ifndef NODE_TYPE
-#define NODE_TYPE "SENSOR"  // Change to "SENSOR" or "GPN" as needed
+#define NODE_TYPE "LED"  // Change to "SENSOR" or "GPN" as needed
 #endif
 //                                   Includes
 // -----------------------------------------------------------------------------
@@ -1065,14 +1065,7 @@ uint8_t app_coap_resources_init() {
   assert(sl_wisun_coap_rhnd_resource_add(&coap_resource) == SL_STATUS_OK);
   count++;
 
-  // Add new /leds/control resource for ON/OFF
-  coap_resource.data.uri_path = "/leds/control";
-  coap_resource.data.resource_type = "leds";
-  coap_resource.data.interface = "leds";
-  coap_resource.auto_response = coap_callback_leds_control;
-  coap_resource.discoverable = true;
-  assert(sl_wisun_coap_rhnd_resource_add(&coap_resource) == SL_STATUS_OK);
-  count++;
+
 #endif /* SL_CATALOG_SIMPLE_LED_PRESENT */
 
 #ifdef    HISTORY

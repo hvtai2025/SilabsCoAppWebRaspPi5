@@ -1,7 +1,13 @@
-// Clear User UI list (frontend only, does not affect backend or dashboard)
+
+// Clear User UI list (frontend and backend)
 function clearUserUI() {
-  userNodes = [];
-  renderUserNodeList();
+  fetch('/api/user_nodes', { method: 'DELETE' })
+    .then(response => response.json())
+    .then(() => {
+      userNodes = [];
+      renderUserNodeList();
+      renderNodeList();
+    });
 }
 
 // Attach clear button event after DOM is loaded
@@ -123,11 +129,16 @@ function renderNodeList() {
     const li = document.createElement('li');
     const alreadyAdded = userNodes.some(u => u.ipv6 === node.ipv6);
     li.className = 'node-item' + (alreadyAdded ? ' greyed-out' : '');
+    let joinTimeHtml = '';
+    if (node.join_time_sec !== undefined && node.join_time_sec !== null) {
+      joinTimeHtml = `<span class="node-join-time">Join Time: <b>${node.join_time_sec.toFixed(2)}s</b></span>`;
+    }
     li.innerHTML = `
       <div class="node-info">
         <span class="node-label">${node.name || 'Node'}</span>
         <span class="node-ip">${node.ipv6}</span>
         <span class="node-type">Type: <b>${node.type || 'Unknown'}</b></span>
+        ${joinTimeHtml}
       </div>
       <div class="node-controls">
         <button onclick="addToUserUI('${node.ipv6}')" ${alreadyAdded ? 'disabled class=\"added-to-ui\"' : ''}>Add to UI</button>

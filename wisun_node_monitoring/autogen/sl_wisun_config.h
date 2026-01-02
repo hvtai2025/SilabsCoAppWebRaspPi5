@@ -51,7 +51,8 @@ extern "C" {
 #define WISUN_CONFIG_NETWORK_SIZE               SL_WISUN_NETWORK_SIZE_SMALL
 
 //! Wi-SUN allowed channels
-#define WISUN_CONFIG_ALLOWED_CHANNELS           "0-255"
+//#define WISUN_CONFIG_ALLOWED_CHANNELS           "0-255"
+#define WISUN_CONFIG_ALLOWED_CHANNELS           "0-10"
 extern const sl_wisun_channel_mask_t wisun_config_allowed_channels_mask;
 
 //! Wi-SUN default PHY - FAN1.1 profile

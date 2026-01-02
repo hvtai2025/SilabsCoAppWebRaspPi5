@@ -278,7 +278,7 @@ uint64_t disconnected_total_sec = 0; // total time disconnected
 uint64_t msg_count = 0;              // number of messages sent
 sl_wisun_neighbor_info_t parent_info;   // local storage of the parent info
 sl_wisun_neighbor_info_t secondary_info;// local storage of the secondary parent info
-uint16_t preferred_pan_id = 0xffff;  // Preferred PAN Id (0xffff for 'none')
+uint16_t preferred_pan_id = PREFERRED_PAN_ID; //0xffff;  // Preferred PAN Id (0xffff for 'none')
 uint8_t  min_join_state   = 0;       // Used to log Join State changes and check how 'low' it goes
 bool     send_asap;                  // Used to trigger sending the status as soon as possible
 
@@ -459,6 +459,8 @@ void app_task(void *args)
 #endif  /* SL_CATALOG_GECKO_BOOTLOADER_INTERFACE_PRESENT */
 
   app_timestamp_init();
+  //Enable below to clear NVM if need too.
+  //delete_app_parameters();
   init_app_parameters();
 
   with_time = to_console = to_rtt = true;
@@ -473,7 +475,7 @@ void app_task(void *args)
   }
 #endif /* APP_CHECK_PREVIOUS_CRASH */
 
-  osDelay(1000);
+  //osDelay(1000);
   printf("\n");
   sprintf(chip, "%s", CHIP);
 #ifdef    SL_CATALOG_SIMPLE_LED_PRESENT
@@ -488,9 +490,10 @@ void app_task(void *args)
   bootloader_getStorageInfo(&storage_info);
   #ifdef    SL_CATALOG_SIMPLE_LED_PRESENT
     if (storage_info.info->partSize == 0) {
-        leds_flash(100, 25);
-        set_leds(0, 0);
-        osDelay(1000);
+        //leds_flash(100, 25);
+        //set_leds(0, 0);
+        //osDelay(1000);
+        osDelay(100);
     }
   #endif /* SL_CATALOG_SIMPLE_LED_PRESENT */
   snprintf(version, 80, "Compiled on %s at %s (flash partSize %ld)", __DATE__, __TIME__, storage_info.info->partSize);
@@ -645,18 +648,18 @@ printfBothTime("device_type %s\n", device_type);
 
 #ifdef    SL_CATALOG_SIMPLE_LED_PRESENT
   // LEDs indicate the 'version' in 2 steps
-  leds_flash(START_FLASHES_A, 250);
-  set_leds(0, 0);
-  osDelay(1000);
-  leds_flash(START_FLASHES_B, 250);
-  set_leds(0, 0);
-  osDelay(1000);
+  //leds_flash(START_FLASHES_A, 250);
+  //set_leds(0, 0);
+  //osDelay(1000);
+  //leds_flash(START_FLASHES_B, 250);
+  //set_leds(0, 0);
+  //osDelay(1000);
   // LEDs show startup option for 1 sec
-  set_leds(B1, B0);
-  osDelay(1000);
+  //set_leds(B1, B0);
+  //osDelay(1000);
   // LEDs cleared to follow the join state (must be 1 if no credentials, 3 otherwise)
   // If LEDs stay at 0: check selected PHY vs Radio Config
-  set_leds(0, 0);
+  //set_leds(0, 0);
 #endif /* SL_CATALOG_SIMPLE_LED_PRESENT */
 
   sl_wisun_set_preferred_pan(app_parameters.preferred_pan_id);
@@ -690,7 +693,8 @@ printfBothTime("device_type %s\n", device_type);
       check_udp_server_messages();
       #endif /* WITH_UDP_SERVER */
     #endif /* WITH_DIRECT_CONNECT */
-      osDelay(1000);
+      //TRUNG: try less delay: osDelay(1000);
+      osDelay(100);
   }
 
   /*******************************************

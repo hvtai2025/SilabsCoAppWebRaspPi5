@@ -35,6 +35,38 @@ def get_node_type(ipv6):
         print(f"[ERROR] Failed to get node type for {ipv6}: {e}")
         return "UNKNOWN"
 
+# Helper to get join time from /statistics/app/join_states_sec
+def get_join_time(ipv6):
+    import os
+    import sys
+    script_path = os.path.abspath(os.path.join(os.path.dirname(__file__), './coap_join_stats.py'))
+    try:
+        result = subprocess.run([sys.executable, script_path, ipv6], capture_output=True, text=True, timeout=8)
+        if result.returncode != 0:
+            return None
+        data = result.stdout.strip()
+        try:
+            parsed = json.loads(data)
+        except Exception:
+            return None
+        # join_states_sec is expected to be a list of numbers
+        if isinstance(parsed, dict) and 'join_states_sec' in parsed:
+            arr = parsed['join_states_sec']
+            if isinstance(arr, list):
+                try:
+                    return sum(float(x) for x in arr)
+                except Exception:
+                    return None
+        elif isinstance(parsed, list):
+            try:
+                return sum(float(x) for x in parsed)
+            except Exception:
+                return None
+        return None
+    except Exception as e:
+        print(f"[ERROR] Failed to get join time for {ipv6}: {e}")
+        return None
+
 @app.route("/api/sensor_data/<path:ipv6>", methods=["GET"])
 def api_sensor_data(ipv6):
     import os
@@ -98,12 +130,19 @@ def discover_nodes():
                 ipv6 = line.strip()
                 if ipv6:
                     node_type = get_node_type(ipv6)
-                    if node_type and node_type != "UNKNOWN":
-                        discovered.append({"ipv6": ipv6, "type": node_type})
+                    if not node_type or node_type == "UNKNOWN":
+                        continue  # Skip nodes that do not reply to type request
+                    join_time = get_join_time(ipv6)
+                    node_info = {"ipv6": ipv6, "type": node_type}
+                    if join_time is not None:
+                        node_info["join_time_sec"] = join_time
+                    discovered.append(node_info)
         nodes = discovered
         print("[DEBUG] Discovered node IPv6 addresses (from script):")
         for n in nodes:
-            print(f"  {n['ipv6']} ({n['type']})")
+            jt = n.get('join_time_sec')
+            jt_str = f", join_time={jt:.2f}s" if jt is not None else ""
+            print(f"  {n['ipv6']} ({n['type']}){jt_str}")
     except Exception as e:
         print(f"[ERROR] Failed to run get_nodes_ipv6_address.py: {e}")
         nodes = []
@@ -138,13 +177,17 @@ def api_nodes():
     discover_nodes()
     return jsonify({"nodes": nodes})
 
-@app.route("/api/user_nodes", methods=["GET", "POST"])
+@app.route("/api/user_nodes", methods=["GET", "POST", "DELETE"])
 def api_user_nodes():
     global user_nodes
     if request.method == "POST":
         node = request.json
         if node not in user_nodes:
             user_nodes.append(node)
+        return jsonify(user_nodes)
+    elif request.method == "DELETE":
+        user_nodes.clear()
+        return jsonify({"status": "cleared"})
     return jsonify(user_nodes)
 
 @app.route("/api/led/<ipv6>/<action>", methods=["POST"])
