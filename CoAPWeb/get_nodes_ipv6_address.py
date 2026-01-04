@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 # Copyright (c) 2024, Silicon Laboratories
 # See license terms contained in COPYING file
 

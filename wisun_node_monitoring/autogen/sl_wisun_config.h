@@ -51,8 +51,7 @@ extern "C" {
 #define WISUN_CONFIG_NETWORK_SIZE               SL_WISUN_NETWORK_SIZE_SMALL
 
 //! Wi-SUN allowed channels
-//#define WISUN_CONFIG_ALLOWED_CHANNELS           "0-255"
-#define WISUN_CONFIG_ALLOWED_CHANNELS           "0-10"
+#define WISUN_CONFIG_ALLOWED_CHANNELS           "2-8"
 extern const sl_wisun_channel_mask_t wisun_config_allowed_channels_mask;
 
 //! Wi-SUN default PHY - FAN1.1 profile
@@ -62,10 +61,10 @@ extern const sl_wisun_channel_mask_t wisun_config_allowed_channels_mask;
 #define WISUN_CONFIG_REGULATORY_DOMAIN          1
 
 //! Wi-SUN default PHY - Channel Plan ID
-#define WISUN_CONFIG_CHANNEL_PLAN_ID            1
+#define WISUN_CONFIG_CHANNEL_PLAN_ID            3
 
 //! Wi-SUN default PHY - PHY Mode ID
-#define WISUN_CONFIG_PHY_MODE_ID                2
+#define WISUN_CONFIG_PHY_MODE_ID                8
 
 //! Wi-SUN Broadcast retries
 #define WISUN_CONFIG_BROADCAST_RETRIES          2

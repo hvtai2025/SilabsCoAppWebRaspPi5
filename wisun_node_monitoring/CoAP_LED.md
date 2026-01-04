@@ -18,8 +18,8 @@ This project implements remote LED control on the Wi-SUN node using CoAP PUT req
 From the Border Router (replace `[DEVICE_IPV6]` with your node's IPv6 address):
 
 ```
-coap-client-notls -m put -N -B 10 -t text coap://[DEVICE_IPV6]:5683/leds/control -e "LED ON"
-coap-client-notls -m put -N -B 10 -t text coap://[DEVICE_IPV6]:5683/leds/control -e "LED OFF"
+coap-client-notls -m put -N -B 10 coap://[DEVICE_IPV6]:5683/leds/control -e "LED ON"
+coap-client-notls -m put -N -B 10 coap://[DEVICE_IPV6]:5683/leds/control -e "LED OFF"
 ```
 
 ## Application Flow

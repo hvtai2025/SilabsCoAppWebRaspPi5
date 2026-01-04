@@ -148,24 +148,72 @@ def discover_nodes():
         nodes = []
 
 def send_coap_command(ipv6, command):
-    # Build the coap-client-notls command
+    # Use aiocoap-based script for better reliability
+    import os
+    import sys
+    script_path = os.path.abspath(os.path.join(os.path.dirname(__file__), './coap_led_control.py'))
+    # Use virtual environment Python if available
+    venv_python = os.path.abspath(os.path.join(os.path.dirname(__file__), '.new_env/bin/python3'))
+    python_exec = venv_python if os.path.exists(venv_python) else sys.executable
+    
     if command == "LED ON":
-        cmd = [
-            "coap-client-notls", "-m", "put", "-N", "-B", "10", "-t", "text",
-            f"coap://[{ipv6}]:5683/leds/control", "-e", "LED ON"
-        ]
+        action = "on"
     elif command == "LED OFF":
-        cmd = [
-            "coap-client-notls", "-m", "put", "-N", "-B", "10", "-t", "text",
-            f"coap://[{ipv6}]:5683/leds/control", "-e", "LED OFF"
-        ]
+        action = "off"
     else:
         return {"status": "error", "message": "Unknown command"}
+    
+    # Try aiocoap-based method first
     try:
-        print(f"[DEBUG] Executing command: {' '.join(cmd)}")
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=5)
-        return {"status": "ok", "stdout": result.stdout, "stderr": result.stderr}
+        print(f"[DEBUG] Using aiocoap script: {script_path}")
+        print(f"[DEBUG] Python executable: {python_exec}")
+        print(f"[DEBUG] Command: {python_exec} {script_path} {ipv6} {action}")
+        result = subprocess.run(
+            [python_exec, script_path, ipv6, action],
+            capture_output=True,
+            text=True,
+            timeout=5
+        )
+        print(f"[DEBUG] Return code: {result.returncode}")
+        print(f"[DEBUG] STDOUT: {result.stdout}")
+        print(f"[DEBUG] STDERR: {result.stderr}")
+        
+        if result.returncode == 0:
+            return {
+                "status": "ok",
+                "stdout": result.stdout,
+                "stderr": result.stderr,
+                "returncode": result.returncode,
+                "method": "aiocoap"
+            }
     except Exception as e:
+        print(f"[WARNING] aiocoap method failed: {e}")
+    
+    # Fallback to coap-client-notls
+    payload = "LED ON" if command == "LED ON" else "LED OFF"
+    cmd = [
+        "coap-client-notls", "-m", "put", "-N", "-B", "10",
+        f"coap://[{ipv6}]:5683/leds/control", "-e", payload
+    ]
+    
+    try:
+        print(f"[DEBUG] Fallback to coap-client-notls")
+        print(f"[DEBUG] Executing command: {' '.join(cmd)}")
+        print(f"[DEBUG] Command as list: {cmd}")
+        print(f"[DEBUG] Payload: '{payload}' (length: {len(payload)})")
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=5)
+        print(f"[DEBUG] Return code: {result.returncode}")
+        print(f"[DEBUG] STDOUT: {result.stdout}")
+        print(f"[DEBUG] STDERR: {result.stderr}")
+        return {
+            "status": "ok" if result.returncode == 0 else "error",
+            "stdout": result.stdout,
+            "stderr": result.stderr,
+            "returncode": result.returncode,
+            "method": "coap-client-notls"
+        }
+    except Exception as e:
+        print(f"[ERROR] Exception during CoAP command: {e}")
         return {"status": "error", "message": str(e)}
 
 @app.route("/")
@@ -192,12 +240,14 @@ def api_user_nodes():
 
 @app.route("/api/led/<ipv6>/<action>", methods=["POST"])
 def api_led_control(ipv6, action):
+    print(f"[DEBUG] LED control request: ipv6={ipv6}, action={action}")
     if action == "on":
         result = send_coap_command(ipv6, "LED ON")
     elif action == "off":
         result = send_coap_command(ipv6, "LED OFF")
     else:
         result = {"status": "error", "message": "Invalid action"}
+    print(f"[DEBUG] LED control result: {result}")
     return jsonify(result)
 
 if __name__ == "__main__":
